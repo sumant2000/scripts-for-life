@@ -6,9 +6,24 @@ The first script here was built to help with battery monitoring and spoken alert
 
 The goal of this repo is simple: keep practical personal scripts in one place so they are easy to run, improve, and reuse.
 
+## Repository Layout
+
+```text
+scripts-for-life/
+├── battery/
+│   └── battery_alert.sh
+├── productivity/
+│   ├── pomodoro.sh
+│   └── stretch_reminder.sh
+├── battery_alert.sh     (compatibility launcher)
+└── Pomodoro.sh          (compatibility launcher)
+```
+
+Top-level launcher files are intentionally kept so existing local commands and paths continue to work.
+
 ## Current Scripts
 
-### `battery_alert.sh`
+### `battery/battery_alert.sh`
 
 Battery monitoring script for macOS.
 
@@ -16,7 +31,7 @@ Battery monitoring script for macOS.
 - Speaks an alert when battery reaches 100% while connected to AC power
 - Uses macOS notifications, spoken audio, and system sounds
 
-### `Pomodoro.sh`
+### `productivity/pomodoro.sh`
 
 Simple Pomodoro timer for macOS.
 
@@ -33,11 +48,69 @@ pomodoro stop
 pomodoro status
 ```
 
+To run with repo-relative path:
+
+```bash
+./productivity/pomodoro.sh start
+./productivity/pomodoro.sh stop
+./productivity/pomodoro.sh status
+```
+
+### `productivity/stretch_reminder.sh`
+
+Movement/hydration reminder that runs continuously until you stop it.
+
+- Default reminder interval: every 50 minutes
+- Supports custom interval in minutes
+- Uses macOS notifications, spoken audio, and system sounds
+
+Commands:
+
+```bash
+./productivity/stretch_reminder.sh start
+./productivity/stretch_reminder.sh start 45
+./productivity/stretch_reminder.sh stop
+./productivity/stretch_reminder.sh status
+```
+
+## Setup
+
+### Global command for Pomodoro
+
+If not already configured, create the global command:
+
+```bash
+ln -sf /Users/sumantkhapre/battery/Pomodoro.sh /opt/homebrew/bin/pomodoro
+```
+
+Then use:
+
+```bash
+pomodoro start
+pomodoro stop
+pomodoro status
+```
+
+### Battery Alert Usage
+
+Run manually:
+
+```bash
+./battery_alert.sh
+```
+
+Or directly from organized folder:
+
+```bash
+./battery/battery_alert.sh
+```
+
 ## Notes
 
 - This repository began with battery-related work
 - More scripts will be added here as new ideas come up
-- The current layout keeps existing scripts at the top level so already working local usage does not break
+- The repository now has category folders for cleaner growth
+- Compatibility launchers keep old commands working
 
 ## Platform
 
@@ -50,4 +123,4 @@ These scripts are currently designed for macOS because they rely on built-in too
 
 ## Future Direction
 
-As the repository grows, scripts can be grouped into folders such as battery, productivity, and other daily utilities.
+More utility scripts will be added over time under category folders (battery, productivity, and others) while preserving easy command usage.

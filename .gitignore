@@ -1,3 +1,5 @@
 .DS_Store
 .pomodoro.log
 .pomodoro.pid
+.stretch_reminder.log
+.stretch_reminder.pid
