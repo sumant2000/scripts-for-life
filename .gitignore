@@ -3,3 +3,5 @@
 .pomodoro.pid
 .stretch_reminder.log
 .stretch_reminder.pid
+battery/battery_alert.log
+battery/battery_alert.err

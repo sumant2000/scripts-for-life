@@ -105,6 +105,16 @@ Or directly from organized folder:
 ./battery/battery_alert.sh
 ```
 
+### Auto-Start Battery Alert On Login/Restart
+
+Install or reinstall the LaunchAgent with one command:
+
+```bash
+./battery/install_battery_launchagent.sh
+```
+
+This sets up a user LaunchAgent that runs every 60 seconds and starts automatically when you log in after restart.
+
 ## Notes
 
 - This repository began with battery-related work
